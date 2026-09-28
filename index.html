@@ -1,103 +1,88 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Shamin Vihanga — Project Manager with experience in software operations, IT project support, networking and cybersecurity." />
-  <meta name="theme-color" content="#08111f" />
-  <title>Shamin Vihanga | Project Manager</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Shamin Vihanga — Project Manager, software operations professional, networking and cybersecurity enthusiast." />
+  <meta name="theme-color" content="#05070b" />
+  <title>Shamin Vihanga | Portfolio</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="page-noise" aria-hidden="true"></div>
-  <div class="orb orb-one" aria-hidden="true"></div>
-  <div class="orb orb-two" aria-hidden="true"></div>
+  <canvas id="matrixCanvas" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
 
-  <header class="site-header" id="siteHeader">
-    <a class="brand" href="#home" aria-label="Shamin Vihanga home">
-      <span class="brand-mark">SV</span><span class="brand-dot">.</span>
+  <header class="topbar">
+    <a class="brand brand-image" href="#home" aria-label="Shamin home">
+      <img src="assets/shamin-logo.png" alt="Shamin logo" />
     </a>
-
-    <nav id="navMenu" class="nav-menu" aria-label="Primary navigation">
+    <nav class="main-nav" id="mainNav">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#qualifications">Qualifications</a>
+      <a href="#certifications">Certificates</a>
+      <a href="#education">Education</a>
       <a href="#contact">Contact</a>
+      <a href="profile.html">Profile</a>
     </nav>
-
-    <div class="header-actions">
-      <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch theme" title="Switch theme">
-        <span class="theme-icon" aria-hidden="true">☾</span>
-      </button>
-      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="navMenu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
   </header>
 
   <main>
     <section class="hero" id="home">
       <div class="hero-copy reveal">
-        <div class="availability"><span></span> Open to professional opportunities</div>
-        <p class="eyebrow">PROJECT MANAGEMENT • SOFTWARE OPERATIONS • CYBERSECURITY</p>
-        <h1>Shamin<br><span>Vihanga</span></h1>
+        <div class="status-pill"><b></b> OPEN FOR PROFESSIONAL OPPORTUNITIES</div>
+        <p class="kicker">PROJECT MANAGEMENT · SOFTWARE OPERATIONS · CYBERSECURITY · NETWORKING</p>
+        <h1 class="glitch" data-text="SHAMIN VIHANGA">SHAMIN<br><span>VIHANGA</span></h1>
         <p class="hero-role">Project Manager</p>
-        <p class="hero-text">A detail-oriented and adaptable professional with experience in software operations, network technology, cybersecurity, project management, data management, technical support, and IT-related projects.</p>
-
-        <div class="hero-actions">
-          <a class="btn primary" href="#experience">Explore my experience <span aria-hidden="true">↘</span></a>
-          <a class="btn secondary" href="assets/Shamin_Vihanga_CV.pdf" download>Download CV <span aria-hidden="true">↓</span></a>
+        <p class="hero-lead">A detail-oriented and adaptable professional with experience in software operations, technical support, project management, networking and cybersecurity.</p>
+        <div class="hero-buttons">
+          <a class="btn primary" href="profile.html">Open profile dashboard ↗</a>
+          <a class="btn ghost" href="#contact">Contact me</a>
         </div>
-
-        <div class="social-row" aria-label="Professional links">
-          <a class="social-link" href="mailto:shaminvihanga328@gmail.com">Email</a>
-          <a class="social-link social-placeholder" href="#" data-social="linkedin" aria-disabled="true">LinkedIn</a>
-          <a class="social-link social-placeholder" href="#" data-social="github" aria-disabled="true">GitHub</a>
+        <div class="social-strip" aria-label="Social profiles">
+          <a href="https://www.linkedin.com/in/shamin-vihanga-" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/shamin.vihange/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/_._mikiya_._/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.youtube.com/@shaminvihanga9292" target="_blank" rel="noopener">YouTube</a>
+          <a href="https://www.tiktok.com/@mikiya.0?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener">TikTok</a>
         </div>
       </div>
 
-      <div class="hero-visual reveal delay-1">
-        <div class="photo-shell">
-          <div class="photo-glow" aria-hidden="true"></div>
-          <img src="assets/profile.png" alt="Shamin Vihanga" />
-          <div class="photo-caption">
-            <span>Current role</span>
-            <strong>Project Manager</strong>
-            <small>Dragon Arrow Private Limited</small>
-          </div>
+      <div class="hero-photo reveal delay-1">
+        <div class="photo-frame tilt-card">
+          <img src="assets/profile-photo.jpg" alt="Shamin Vihanga" />
+          <div class="photo-overlay"></div>
+          <div class="photo-meta"><span>CURRENT ROLE</span><strong>Project Manager</strong><small>Dragon Arrow Private Limited</small></div>
         </div>
-        <div class="mini-card card-a"><strong>2026</strong><span>Cyber Security & Ethical Hacking Diploma</span></div>
-        <div class="mini-card card-b"><strong>CCNAv7</strong><span>Cisco Networking Academy</span></div>
+        <div class="float-card fc-one"><span>2026</span><b>Cyber Security & Ethical Hacking</b></div>
+        <div class="float-card fc-two"><span>CISCO</span><b>Networking Academy Verified</b></div>
+        <div class="terminal-card reveal delay-2">
+          <div class="terminal-top"><span></span><span></span><span></span></div>
+          <p>&gt; init profile.sh</p>
+          <p>&gt; skills: project management / cybersecurity / networking</p>
+          <p>&gt; status: available_for_opportunities = true</p>
+        </div>
       </div>
-
-      <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><i></i></div>
     </section>
 
-    <section class="section metrics reveal" aria-label="Profile highlights">
-      <div class="metric"><strong>2022</strong><span>Career journey started</span></div>
-      <div class="metric"><strong>3</strong><span>Roles at Dragon Arrow</span></div>
-      <div class="metric"><strong>7</strong><span>Professional qualifications</span></div>
-      <div class="metric"><strong>3</strong><span>Languages listed</span></div>
+    <section class="stats reveal">
+      <article><strong>2022</strong><span>Career started</span></article>
+      <article><strong>3</strong><span>Roles at Dragon Arrow</span></article>
+      <article><strong>7+</strong><span>Qualifications</span></article>
+      <article><strong>5</strong><span>Cisco badges</span></article>
     </section>
 
     <section class="section" id="about">
-      <div class="section-head reveal">
-        <div><p class="eyebrow">01 / ABOUT</p><h2>Professional profile</h2></div>
-        <p class="section-intro">A blend of project coordination, software operations, networking, cybersecurity, analytical thinking, and team-focused problem solving.</p>
-      </div>
-
-      <div class="about-layout">
-        <article class="panel profile-panel reveal">
-          <p class="lead">A detail-oriented and adaptable Senior Software Analyst with expertise in network technology, cybersecurity, and software engineering.</p>
-          <p>Skilled in analytical thinking, project management, and problem solving, with a proven ability to manage data, lead teams, and drive projects to success. Experienced in software operations and proficient in tools like MS Office and basic computing.</p>
-          <div class="signature-line"><span></span><strong>Shamin Vihanga</strong></div>
+      <div class="section-title reveal"><span>01</span><div><p>ABOUT ME</p><h2>Professional profile</h2></div></div>
+      <div class="about-grid">
+        <article class="glass reveal tilt-card">
+          <p class="large-copy">A detail-oriented and adaptable Senior Software Analyst with expertise in network technology, cybersecurity, and software engineering.</p>
+          <p>Skilled in analytical thinking, project management, and problem solving, with a proven ability to manage data, lead teams, and drive projects to success. Experienced in software operations and proficient in MS Office and basic computing.</p>
         </article>
-
-        <article class="panel reveal delay-1">
-          <div class="panel-label">Core skills</div>
-          <div class="skill-cloud">
+        <article class="glass reveal delay-1 tilt-card">
+          <p class="mini-label">CORE SKILLS</p>
+          <div class="skill-grid">
             <span>Analytical & Project Management</span>
             <span>Data Analytics & Database Management</span>
             <span>Time Management & Organization</span>
@@ -109,182 +94,111 @@
       </div>
     </section>
 
-    <section class="section section-tint" id="experience">
-      <div class="section-head reveal">
-        <div><p class="eyebrow">02 / EXPERIENCE</p><h2>Career timeline</h2></div>
-        <p class="section-intro">Progression across software operations, technical support, and project management at Dragon Arrow Private Limited.</p>
-      </div>
-
+    <section class="section alt" id="experience">
+      <div class="section-title reveal"><span>02</span><div><p>EXPERIENCE</p><h2>Career timeline</h2></div></div>
       <div class="timeline">
-        <article class="timeline-row reveal">
-          <div class="timeline-year">2026</div>
-          <div class="timeline-dot" aria-hidden="true"></div>
-          <div class="timeline-card">
-            <div class="role-top"><h3>Project Manager</h3><span>Current</span></div>
-            <p class="company">Dragon Arrow Private Limited</p>
-            <p class="muted">Marine City Residence, Station Road, Dehiwala</p>
+        <article class="timeline-card reveal tilt-card"><time>2026</time><div><div class="current-badge">CURRENT</div><h3>Project Manager</h3><p>Dragon Arrow Private Limited</p><small>Leadership, coordination and project execution</small></div></article>
+        <article class="timeline-card reveal tilt-card"><time>2023–2025</time><div><h3>Senior Software Operator</h3><p>Dragon Arrow Private Limited</p><small>Assisting in software operations, troubleshooting technical issues and providing IT project support</small></div></article>
+        <article class="timeline-card reveal tilt-card"><time>2022–2023</time><div><h3>Software Operator</h3><p>Dragon Arrow Private Limited</p><small>Software operations and technical support</small></div></article>
+      </div>
+    </section>
+
+    <section class="section" id="certifications">
+      <div class="section-title reveal"><span>03</span><div><p>CERTIFICATIONS</p><h2>Cisco verified badges</h2></div></div>
+      <p class="section-copy reveal">Verified Cisco Networking Academy achievements are presented here with the original badge artwork you provided.</p>
+      <div class="badge-grid">
+        <article class="badge-card reveal tilt-card"><img src="assets/cisco-network-security.png" alt="Cisco Networking Academy verified Network Security badge"><div><span>2024</span><h3>Network Security</h3><p>Cisco Networking Academy</p></div></article>
+        <article class="badge-card reveal delay-1 tilt-card"><img src="assets/cisco-network-defense.png" alt="Cisco Networking Academy verified Network Defense badge"><div><span>2022</span><h3>Network Defense</h3><p>Cisco Networking Academy</p></div></article>
+        <article class="badge-card reveal delay-2 tilt-card"><img src="assets/cisco-introduction-to-cybersecurity.png" alt="Cisco Networking Academy verified Introduction to Cybersecurity badge"><div><span>2022</span><h3>Introduction to Cybersecurity</h3><p>Cisco Networking Academy</p></div></article>
+        <article class="badge-card reveal tilt-card"><img src="assets/cisco-ccna-switching-routing-wireless-essentials.png" alt="Cisco Networking Academy verified CCNA Switching Routing and Wireless Essentials badge"><div><span>CCNA</span><h3>Switching, Routing & Wireless Essentials</h3><p>Cisco Networking Academy</p></div></article>
+        <article class="badge-card reveal delay-1 tilt-card"><img src="assets/cisco-ccna-introduction-to-networks.png" alt="Cisco Networking Academy verified CCNA Introduction to Networks badge"><div><span>CCNA</span><h3>Introduction to Networks</h3><p>Cisco Networking Academy</p></div></article>
+      </div>
+
+      <div class="qualification-list reveal">
+        <div><time>2026</time><strong>Diploma in Cyber Security & Ethical Hacking</strong><span>SITC Campus</span></div>
+        <div><time>2024</time><strong>CISCO Certified Network Associate (CCNAv7)</strong><span>Cisco Networking Academy</span></div>
+        <div><time>2019</time><strong>Special Basic Computer</strong><span>Ministry Of Public Administration and Management</span></div>
+        <div><time>2019</time><strong>Software Engineering Basic</strong><span>Atari City Campus</span></div>
+      </div>
+    </section>
+
+    <section class="section alt" id="education">
+      <div class="section-title reveal"><span>04</span><div><p>EDUCATION</p><h2>Education & activities</h2></div></div>
+      <div class="two-col">
+        <article class="glass reveal tilt-card">
+          <p class="mini-label">EDUCATION</p>
+          <div class="info-row"><span>2022</span><div><h3>G.C.E Advanced Level</h3><p>Mahanama College, Colombo 03</p></div></div>
+          <div class="info-row"><span>2018</span><div><h3>G.C.E Ordinary Level</h3><p>Ananda Sastralaya, Kotte</p></div></div>
+        </article>
+        <article class="glass reveal delay-1 tilt-card">
+          <p class="mini-label">EXTRA CURRICULAR</p>
+          <ul class="activity-list">
+            <li><b>2019–2022</b> Leo Club Of Mahanama College</li>
+            <li><b>2019–2021</b> Mahanama College Senior Cadet Band — Rank: Senior</li>
+            <li><b>2019–2022</b> Mahanama College U-19 Rugby Player</li>
+            <li><b>2013–2018</b> 51st Colombo Scout Group — Team leader</li>
+            <li><b>2020–2022</b> Mahanama College Foreign Language Society</li>
+            <li><b>2021–2022</b> Mahanama College ICT Society</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact-panel" id="contact">
+      <div class="section-title reveal"><span>05</span><div><p>CONTACT</p><h2>Wanna contact me?</h2></div></div>
+      <div class="contact-grid">
+        <div class="contact-copy reveal">
+          <p class="kicker">SECURE CONNECTION</p>
+          <h2>Let’s build something great together.</h2>
+          <p>If you have a project, collaboration, or professional opportunity, send me a message using the form. I’ll get back to you through email.</p>
+          <div class="contact-mini-cards">
+            <div class="contact-mini-card">
+              <span>EMAIL</span>
+              <a href="mailto:shaminvihanga328@gmail.com">shaminvihanga328@gmail.com</a>
+            </div>
+            <div class="contact-mini-card">
+              <span>SOCIALS</span>
+              <p>LinkedIn · Facebook · Instagram · YouTube · TikTok</p>
+            </div>
           </div>
-        </article>
-
-        <article class="timeline-row reveal">
-          <div class="timeline-year">2023–2025</div>
-          <div class="timeline-dot" aria-hidden="true"></div>
-          <div class="timeline-card">
-            <h3>Senior Software Operator</h3>
-            <p class="company">Dragon Arrow Private Limited</p>
-            <p class="muted">Baudaloka Mawatha, Colombo 04</p>
-            <ul class="clean-list">
-              <li>Assisting in software operations</li>
-              <li>Troubleshooting technical issues</li>
-              <li>Providing support for IT-related projects</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="timeline-row reveal">
-          <div class="timeline-year">2022–2023</div>
-          <div class="timeline-dot" aria-hidden="true"></div>
-          <div class="timeline-card">
-            <h3>Software Operator</h3>
-            <p class="company">Dragon Arrow Private Limited</p>
-            <p class="muted">Marine City Residence, Station Road, Dehiwala</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="projects">
-      <div class="section-head reveal">
-        <div><p class="eyebrow">03 / PROJECTS</p><h2>Work & focus highlights</h2></div>
-        <p class="section-intro">This section is based only on the work and qualifications listed in the CV, without adding unverified project details.</p>
-      </div>
-
-      <div class="project-grid">
-        <article class="project-card featured reveal">
-          <div class="project-number">01</div>
-          <div>
-            <p class="project-type">PROJECT MANAGEMENT</p>
-            <h3>Project Manager — Dragon Arrow</h3>
-            <p>Current 2026 role at Dragon Arrow Private Limited, following previous software operations roles within the company.</p>
-            <div class="tag-row"><span>Project Management</span><span>Leadership</span><span>Teamwork</span></div>
-          </div>
-        </article>
-
-        <article class="project-card reveal delay-1">
-          <div class="project-number">02</div>
-          <p class="project-type">IT PROJECT SUPPORT</p>
-          <h3>Software Operations & Technical Support</h3>
-          <p>Experience assisting in software operations, troubleshooting technical issues, and supporting IT-related projects.</p>
-          <div class="tag-row"><span>Software Operations</span><span>Problem Solving</span></div>
-        </article>
-
-        <article class="project-card reveal delay-2">
-          <div class="project-number">03</div>
-          <p class="project-type">CYBERSECURITY & NETWORKING</p>
-          <h3>Professional Learning Track</h3>
-          <p>Professional qualifications include Cyber Security & Ethical Hacking, CCNAv7, Network Security, Introduction to Cyber Security, and Network Defense.</p>
-          <div class="tag-row"><span>Cybersecurity</span><span>Networking</span><span>CCNA</span></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section section-tint" id="qualifications">
-      <div class="section-head reveal">
-        <div><p class="eyebrow">04 / QUALIFICATIONS</p><h2>Professional qualifications</h2></div>
-        <p class="section-intro">Cybersecurity, networking, software engineering, and computing qualifications completed between 2019 and 2026.</p>
-      </div>
-
-      <div class="qualification-grid">
-        <article class="qualification-card reveal"><span class="year-pill">2026</span><h3>Diploma in Cyber Security & Ethical Hacking</h3><p>SITC Campus</p></article>
-        <article class="qualification-card reveal"><span class="year-pill">2024</span><h3>CISCO Certified Network Associate (CCNAv7)</h3><p>Cisco Networking Academy</p></article>
-        <article class="qualification-card reveal"><span class="year-pill">2024</span><h3>Network-Security</h3><p>Cisco Networking Academy</p></article>
-        <article class="qualification-card reveal"><span class="year-pill">2022</span><h3>Introduction to Cyber Security</h3><p>Cisco Networking Academy</p></article>
-        <article class="qualification-card reveal"><span class="year-pill">2022</span><h3>Network Defense</h3><p>Cisco Networking Academy</p></article>
-        <article class="qualification-card reveal"><span class="year-pill">2019</span><h3>Special Basic Computer</h3><p>Ministry Of Public Administration and Management</p></article>
-        <article class="qualification-card reveal"><span class="year-pill">2019</span><h3>Software Engineering Basic</h3><p>Atari City Campus</p></article>
-      </div>
-    </section>
-
-    <section class="section" id="education">
-      <div class="section-head reveal">
-        <div><p class="eyebrow">05 / EDUCATION</p><h2>Education & activities</h2></div>
-        <p class="section-intro">Academic background and long-term involvement in leadership, sports, scouting, language, and ICT activities.</p>
-      </div>
-
-      <div class="education-grid">
-        <article class="panel reveal">
-          <div class="panel-label">Education</div>
-          <div class="edu-item"><span>2022</span><div><h3>G.C.E Advanced Level</h3><p>Mahanama College, Colombo 03</p></div></div>
-          <div class="edu-item"><span>2018</span><div><h3>G.C.E Ordinary Level</h3><p>Ananda Sastralaya, Kotte</p></div></div>
-        </article>
-
-        <article class="panel reveal delay-1">
-          <div class="panel-label">Extra curricular activities</div>
-          <div class="activity-item"><span>2019–2022</span><strong>Leo Club Of Mahanama College</strong></div>
-          <div class="activity-item"><span>2019–2021</span><strong>Mahanama College Senior Cadet Band — Rank: Senior</strong></div>
-          <div class="activity-item"><span>2019–2022</span><strong>Mahanama College U-19 Rugby Player</strong></div>
-          <div class="activity-item"><span>2013–2018</span><strong>51st Colombo Scout Group — Team leader</strong></div>
-          <div class="activity-item"><span>2020–2022</span><strong>Mahanama College Foreign Language Society</strong></div>
-          <div class="activity-item"><span>2021–2022</span><strong>Mahanama College ICT Society</strong></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section compact-section" id="languages">
-      <div class="section-head reveal">
-        <div><p class="eyebrow">06 / LANGUAGES</p><h2>Languages</h2></div>
-      </div>
-      <div class="language-list reveal">
-        <div><span>01</span><strong>Sinhala</strong></div>
-        <div><span>02</span><strong>English</strong></div>
-        <div><span>03</span><strong>Japanese</strong></div>
-      </div>
-    </section>
-
-    <section class="section section-tint" id="referees">
-      <div class="section-head reveal">
-        <div><p class="eyebrow">07 / REFEREES</p><h2>Professional referees</h2></div>
-      </div>
-
-      <div class="ref-grid">
-        <article class="reference-card reveal">
-          <div class="reference-avatar">SJ</div>
-          <div><h3>Mr. Sachintha Jarathne</h3><p>Senior Mechanical Design Engineer<br>Dragon Arrow Private Limited, Sri Lanka</p><a href="tel:+94716486032">+94 71 648 6032</a></div>
-        </article>
-        <article class="reference-card reveal delay-1">
-          <div class="reference-avatar">YH</div>
-          <div><h3>Mr. Yasiru Nirmala Herath</h3><p>Cisco Certified Academy Instructor, Sri Lanka</p><a href="tel:+94704303020">+94 70 430 3020</a></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contact">
-      <div class="contact-glow" aria-hidden="true"></div>
-      <div class="contact-copy reveal">
-        <p class="eyebrow">08 / CONTACT</p>
-        <h2>Let’s build something useful.</h2>
-        <p>For professional opportunities, collaborations, or project discussions, get in touch by email or phone.</p>
-        <div class="contact-actions">
-          <a class="btn primary" href="mailto:shaminvihanga328@gmail.com">Send an email <span aria-hidden="true">↗</span></a>
-          <button class="btn secondary" id="copyEmail" type="button">Copy email</button>
         </div>
-      </div>
 
-      <div class="contact-details reveal delay-1">
-        <a href="tel:+94772594095"><span>Phone</span><strong>+94 77 259 4095</strong></a>
-        <a href="mailto:shaminvihanga328@gmail.com"><span>Email</span><strong>shaminvihanga328@gmail.com</strong></a>
-        <div><span>Address</span><strong>60/16, Suhadha Mw, Hokandara.</strong></div>
+        <form class="contact-form reveal delay-1" id="contactForm">
+          <div class="form-grid two">
+            <label>
+              <span>YOUR NAME</span>
+              <input type="text" name="name" placeholder="Enter your name" required />
+            </label>
+            <label>
+              <span>YOUR EMAIL</span>
+              <input type="email" name="email" placeholder="Enter your email" required />
+            </label>
+            <label>
+              <span>BUSINESS <em>(OPTIONAL)</em></span>
+              <input type="text" name="business" placeholder="Business name" />
+            </label>
+            <label>
+              <span>SUBJECT</span>
+              <input type="text" name="subject" placeholder="Subject" required />
+            </label>
+          </div>
+          <label class="full-width">
+            <span>MESSAGE</span>
+            <textarea name="message" rows="7" placeholder="Your Message" required></textarea>
+          </label>
+          <button class="submit-btn" type="submit">➤ Submit Inquiry</button>
+          <p class="form-note">This form opens your email app with the filled message.</p>
+        </form>
       </div>
     </section>
   </main>
 
   <footer>
-    <div><strong>Shamin Vihanga</strong><span>Project Manager</span></div>
-    <p>© <span id="year"></span> Shamin Vihanga. All rights reserved.</p>
-    <a href="#home">Back to top ↑</a>
+    <div><strong>Shamin Vihanga</strong><span>Project Manager · Cybersecurity & Networking Enthusiast</span></div>
+    <div class="footer-links"><a href="profile.html">Profile page</a><a href="#home">Top ↑</a></div>
+    <p>© <span id="year"></span> Shamin Vihanga</p>
   </footer>
 
-  <div class="toast" id="toast" role="status" aria-live="polite">Email copied</div>
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,100 +1,103 @@
-const profileLinks = {
-  linkedin: "",
-  github: ""
-};
+document.getElementById('year')?.append(new Date().getFullYear());
 
-const root = document.documentElement;
-const header = document.getElementById("siteHeader");
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.getElementById("navMenu");
-const themeToggle = document.getElementById("themeToggle");
-const themeIcon = themeToggle.querySelector(".theme-icon");
-const toast = document.getElementById("toast");
-
-const savedTheme = localStorage.getItem("sv-theme");
-if (savedTheme === "light" || savedTheme === "dark") root.dataset.theme = savedTheme;
-updateThemeIcon();
-
-document.getElementById("year").textContent = new Date().getFullYear();
-
-menuBtn.addEventListener("click", () => {
-  const open = nav.classList.toggle("open");
-  menuBtn.classList.toggle("open", open);
-  menuBtn.setAttribute("aria-expanded", String(open));
-});
-
-nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
-  nav.classList.remove("open");
-  menuBtn.classList.remove("open");
-  menuBtn.setAttribute("aria-expanded", "false");
-}));
-
-themeToggle.addEventListener("click", () => {
-  root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";
-  localStorage.setItem("sv-theme", root.dataset.theme);
-  updateThemeIcon();
-});
-
-function updateThemeIcon(){
-  const isLight = root.dataset.theme === "light";
-  themeIcon.textContent = isLight ? "☀" : "☾";
-  themeToggle.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
-}
-
-window.addEventListener("scroll", () => {
-  header.classList.toggle("scrolled", window.scrollY > 18);
-});
+const menu = document.getElementById('mainNav');
+document.getElementById('menuToggle')?.addEventListener('click', () => menu?.classList.toggle('open'));
+menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
 
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
+      entry.target.classList.add('visible');
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12, rootMargin: "0px 0px -40px" });
+}, { threshold: 0.12, rootMargin: '0px 0px -30px' });
 
-document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-const sections = [...document.querySelectorAll("main section[id]")];
-const navLinks = [...nav.querySelectorAll("a")];
-const sectionObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    navLinks.forEach(link => link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`));
-  });
-}, { rootMargin: "-35% 0px -55%", threshold: 0 });
-sections.forEach(section => sectionObserver.observe(section));
+// Contact form -> mailto
+const contactForm = document.getElementById('contactForm');
+contactForm?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const data = new FormData(contactForm);
+  const name = (data.get('name') || '').toString().trim();
+  const email = (data.get('email') || '').toString().trim();
+  const business = (data.get('business') || '').toString().trim();
+  const subject = (data.get('subject') || '').toString().trim();
+  const message = (data.get('message') || '').toString().trim();
 
-document.getElementById("copyEmail").addEventListener("click", async () => {
-  const email = "shaminvihanga328@gmail.com";
-  try {
-    await navigator.clipboard.writeText(email);
-    showToast("Email copied");
-  } catch {
-    showToast(email);
-  }
+  const body = [
+    `Name: ${name}`,
+    `Email: ${email}`,
+    `Business: ${business || 'N/A'}`,
+    '',
+    'Message:',
+    message
+  ].join('\n');
+
+  const mailto = `mailto:shaminvihanga328@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = mailto;
 });
 
-function showToast(message){
-  toast.textContent = message;
-  toast.classList.add("show");
-  setTimeout(() => toast.classList.remove("show"), 1800);
-}
+// Matrix-style animated background
+(function matrixBackground() {
+  const canvas = document.getElementById('matrixCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let width = 0;
+  let height = 0;
+  let columns = 0;
+  let drops = [];
+  const fontSize = 16;
+  const chars = '01アイウエオカキクケコサシスセソタチツテトABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&*';
 
-document.querySelectorAll("[data-social]").forEach(link => {
-  const key = link.dataset.social;
-  const url = profileLinks[key];
-  if (url) {
-    link.href = url;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.classList.remove("social-placeholder");
-    link.removeAttribute("aria-disabled");
-  } else {
-    link.addEventListener("click", event => {
-      event.preventDefault();
-      showToast(`Add your ${key === "linkedin" ? "LinkedIn" : "GitHub"} URL in script.js`);
-    });
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    columns = Math.floor(width / fontSize);
+    drops = Array.from({ length: columns }, () => Math.random() * height / fontSize);
   }
+
+  let lastFrame = 0;
+  const frameInterval = 85; // larger value = slower matrix animation
+
+  function draw(timestamp = 0) {
+    if (timestamp - lastFrame >= frameInterval) {
+      lastFrame = timestamp;
+      ctx.fillStyle = 'rgba(2, 4, 6, 0.13)';
+      ctx.fillRect(0, 0, width, height);
+      ctx.font = `${fontSize}px monospace`;
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        const x = i * fontSize;
+        const y = drops[i] * fontSize;
+        ctx.fillStyle = i % 6 === 0 ? 'rgba(112, 212, 255, 0.50)' : 'rgba(89, 255, 47, 0.55)';
+        ctx.fillText(text, x, y);
+        if (y > height && Math.random() > 0.982) drops[i] = 0;
+        drops[i] += 0.55;
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  requestAnimationFrame(draw);
+  window.addEventListener('resize', resize);
+})();
+
+// Light 3D tilt effect for cards
+const tiltCards = document.querySelectorAll('.tilt-card');
+tiltCards.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width;
+    const py = (e.clientY - rect.top) / rect.height;
+    const rotateY = (px - 0.5) * 8;
+    const rotateX = (0.5 - py) * 8;
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
 });
